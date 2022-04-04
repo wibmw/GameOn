@@ -40,7 +40,7 @@
             Vous aimez jouer ? Notre prochain évènement gaming est ouvert
             aux réservations... Places limitées !
           </p>
-          <button class="btn-signup modal-btn">
+          <button class="btn-signup modal-btn" onclick="launchModal()">
             je m'inscris
           </button>
         </div>
@@ -54,7 +54,7 @@
 
       <div class="bground">
         <div class="content">
-          <span class="close"></span>
+          <span class="close" onclick="closeModal()"></span>
           <div class="modal-body">
             <form
               name="reserve"
@@ -215,6 +215,6 @@
         Copyright 2014 - 2022, GameOn Inc.
       </p>
     </footer>
-    <script src="modal.js"></script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
