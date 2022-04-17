@@ -26,6 +26,13 @@ const emailMessage = "L'adresse e-mail n'est pas valide !";
 const birthdateMessage = "La date de naissace n'est pas valide !";
 const quantityMessage = "Merci d'entrer un nombre !";
 
+// datas validation
+isFirstNameValid = false;
+isLastNameValid = false;
+isEmailValid = false;
+isBirthdateValid = false;
+isQuantityValid = false;
+
 // Messages initialisation
 setValidationMessage(firstName,firstNameMessage);
 setValidationMessage(lastName,lastNameMessage);
@@ -48,17 +55,9 @@ function closeModal() {
 
 //verification 2 chart min
 function chart2Min(value) {
-  return /a{2,}$/.test(value);
+  console.log(value + "   " + /^[a-zA-Z]{2,}$/.test(value));
+  return /^[a-zA-Z]{2,}$/.test(value);
 }
-
-//disable submit button
-/*function disableSubmit(disabled) {
-  if (disabled) {
-    modalSubmit.setAttribute("disabled", true);
-  } else {
-    modalSubmit.removeAttribute("disabled");
-  }
-}*/
 
 // clear validation message
 function clearValidationMessage(element) {
@@ -74,107 +73,94 @@ function setValidationMessage(element, message) {
   console.log("setValidationMessage " + element.name);
 }
 
-//firsname check 2 char
-/*firstName.addEventListener('input', function(e) {
-  var value = e.target.value;
-  if (chart2Min(value)) {
-      isValid = true;
-  } else {
-      isValid = false;
-  }
-});*/
-
-//lastname check 2 char
-/*lastName.addEventListener('input', function(e) {
-  var value = e.target.value;
- /* if (chart2Min(value)) {
-    disableSubmit(true);
-  } else {
-    disableSubmit(false);
-  }
-});*/
 //********************* CHECK MESSAGES  ***********************************/
 //firstname check message
-firstName.addEventListener('focus', function (event) {
-  if (firstName.validity.tooShort || firstName === '') {
+firstName.addEventListener('keyup', function (event) {
+  if (!(chart2Min(firstName.value)) || firstName === '') {
     setValidationMessage(firstName, firstNameMessage);
+    isFirstNameValid = false;
   } else {
     clearValidationMessage(firstName);
+    isFirstNameValid = true;
   }
 });
 
 //lastnamecheck message
-lastName.addEventListener('focus', function (event) {
-  if (lastName.validity.tooShort || lastName === '') {
+lastName.addEventListener('keyup', function (event) {
+  if (!(chart2Min(lastName.value)) || lastName === '') {
     setValidationMessage(lastName, lastNameMessage);
+    isLastNameValid = false;
   } else {
     clearValidationMessage(lastName);
+    isLastNameValid = true;
   }
 });
 
 //email check message
-email.addEventListener('focus', function (event) {
-  if (email.validity.typeMismatch || email === '') {
+email.addEventListener('change', function (event) {
+  if (!(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/.test(email.value)) || email === '') {
     setValidationMessage(email, emailMessage);
+    isEmailValid = false;
   } else {
     clearValidationMessage(email);
+    isEmailValid = true;
   }
 });
 
 //birthdate check message
-birthdate.addEventListener('focus', function (event) {
+birthdate.addEventListener('change', function (event) {
   today = new Date(Date.now());
+  today.setFullYear( today.getFullYear() - 10 );
   minDate = new Date(Date.parse("1900/01/01"));
   selectedDate = new Date(Date.parse(birthdate.value));
-
-  console.log(today + " - " + selectedDate + " - " + minDate);
  
-  if ((selectedDate < today ) && (selectedDate > minDate)) {
+  if ((selectedDate < today ) && (selectedDate > minDate)  && (selectedDate > minDate)) {
     clearValidationMessage(birthdate);
-    console.log("1");
+    isBirthdateValid = true;
   } else {
     console.log(birthdate.value);
     setValidationMessage(birthdate, birthdateMessage);
-    console.log("2");
+    isBirthdateValid = false;
   }
 });
 
 //quantity check message
 quantity.addEventListener('keyup', function (event) {
   console.log(quantity.validity.typeMismatch)
-  if(quantity.validity.typeMismatch) {
+  if((quantity.value < 1) || (quantity.value > 99)) {
     setValidationMessage(quantity, quantityMessage);
+    isQuantityValid = false;
   } else {
     clearValidationMessage(quantity);
+    isQuantityValid = true;
   }
 });
 
 //form fields validation
 function formValidation(e) {
-
-  //e.preventDefault();
-
-  selected = 0;
-  for (let i = 1; i < 7; i++) {
-    console.log(i);
-    console.log(document.getElementById("location" + i).checked);
-    if (document.getElementById("location" + i).checked) {
-      console.log(i);
-      selected++;
-    }
-  }
-  if(selected == 0) {
-    //setValidationMessage(document.getElementById("location1"), "Vous devez selectionner une ville !");
-    console.log(selected);
-    console.log("not good");
-    return false;
-  } else {
-    //clearValidationMessage(document.getElementById("location1"));
-    console.log(selected);
-    console.log("good");
-    return true;
-  }
+  const radios = document.querySelectorAll("input[name='location']:checked");  //radios checkbox
+  if(isFirstNameValid && isLastNameValid && isEmailValid && isBirthdateValid && isQuantityValid){
+    if(!(radios.length)) {
+      //setValidationMessage(document.getElementById("location1"), "Vous devez selectionner une ville !");
+      console.log("not good");
+      return false;
   
+    } else {
+      //clearValidationMessage(document.getElementById("location1"));
+      console.log("good");
+        //Termes Acceptation
+        if(checkbox1.checked){
+          console.log("checked");
+          return true;
+        }else{
+          console.log("notchecked");
+          return false;
+        }
+    }
+  }else{
+    console.log("form not valid");
+    return false;
+  }
 };
 
 //modalSubmit.addEventListener("click", formValidation);

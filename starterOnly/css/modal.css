@@ -415,7 +415,6 @@ input[data-error]::after {
 }
 .hero-content {
   padding: 51px 67px;
-  grid-column: span 4;
   background: #232323;
   color: #fff;
   position: relative;
