@@ -166,7 +166,32 @@ main {
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
+  background-color: white;
+}
+
+#reserve {
+  visibility: visible;
+}
+
+#modalSuccess {
+  visibility: collapse;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#modalSuccess span {
+  position: absolute;
+  margin-top: -800px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+#modalSuccess input {
+  margin-top: -100px;
+  text-align: center;
+  padding: 12px 0 12px;
 }
 
 .content {

@@ -8,6 +8,8 @@ function editNav() {
 }
 
 // DOM Elements
+const formContent = document.getElementById("reserve");     //form content
+const modalSuccess = document.getElementById("modalSuccess");//modal success
 const modalbg = document.querySelector(".bground");         //modal
 const modalSubmit = document.querySelector(".btn-submit");  //modal submit button
 const modalBtn = document.querySelectorAll(".modal-btn");   //open modal button
@@ -31,12 +33,6 @@ const acceptationMessage =  "Vous devez accepter les conditions d'utilisation !"
 const requiredFieldsMessage =  "Vous devez compléter tous les champs obligatoires !";
 
 // datas validation initialisation
-/*isFirstNameValid = false;
-isLastNameValid = false;
-isEmailValid = false;
-isBirthdateValid = false;
-isQuantityValid = false;
-*/
 firstName.valid = false;
 lastName.valid = false;
 email.valid = false;
@@ -58,7 +54,6 @@ function closeModal() {
 
 // 2 chart min verification
 function chart2Min(value) {
-  console.log(value + "   " + /^[a-zA-Z]{2,}$/.test(value));
   return /^[a-zA-Z]{2,}$/.test(value);
 }
 
@@ -66,14 +61,12 @@ function chart2Min(value) {
 function clearValidationMessage(element) {
   element.closest(".formData").setAttribute("data-error-visible", "false");
   element.closest(".formData").setAttribute("data-error", "");
-  console.log("clearValidationMessage " + element.name);
 }
 
 // set validation message
 function setValidationMessage(element, message) {
   element.closest(".formData").setAttribute("data-error-visible", "true");
   element.closest(".formData").setAttribute("data-error", message);
-  console.log("setValidationMessage " + element.name);
 }
 
 //********************* CHECK FUNCTIONS  ***********************************/
@@ -147,7 +140,7 @@ birthdate.addEventListener('change', function (event) {
   birthdateCheck(birthdate, birthdateMessage);
 });
 
-//quantitye event message
+//quantity event message
 quantity.addEventListener('keyup', function (event) {
   quantityCheck(quantity, quantityMessage);
 });
@@ -172,7 +165,10 @@ function formValidation(e) {
         //Termes Acceptation
         if(checkbox1.checked){
           clearValidationMessage(conditionAcceptation);
-          return true;
+          //Modal Success
+          formContent.style.visibility="collapse";
+          modalSuccess.style.visibility="visible";
+          return false;
         }else{
           setValidationMessage(conditionAcceptation, acceptationMessage);
           return false;
@@ -183,5 +179,3 @@ function formValidation(e) {
     return false;
   }
 };
-
-//modalSubmit.addEventListener("click", formValidation);

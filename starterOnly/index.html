@@ -54,7 +54,7 @@
       <div class="content">
         <span class="close" onclick="closeModal()"></span>
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="return formValidation();" autocomplete="off" novalidate>
+          <form id="reserve" action="index.html" method="get" onsubmit="return formValidation();" data-visibility="visible" novalidate>
             <div class="formData">
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first"/><br>
@@ -122,6 +122,10 @@
             </div>
            
           </form>
+          <div id="modalSuccess" data-visibility="collapse">
+            <span>Merci pour <br/>votre inscription</span>
+            <input class="btn-submit" onclick="closeModal()" class="button" value="Fermer" />
+          </div>
         </div>
       </div>
     </div>
