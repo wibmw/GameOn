@@ -17,8 +17,7 @@
     </div>
     <div class="main-navbar">
 
-      <a href="#" class="active"><span>Accueil</span></a>
-      <a href="#"><span>Détails de l'évènement</span></a>
+      <a href="#" class="active"><span>Détails de l'évènement</span></a>
       <a href="#"><span>À propos</span></a>
       <a href="#"><span>Contact</span></a>
       <a href="#"><span>Évènements passés</span></a>
@@ -55,7 +54,7 @@
       <div class="content">
         <span class="close" onclick="closeModal()"></span>
         <div class="modal-body">
-          <form name="reserve" action="index.html" method="get" onsubmit="return formValidation();" novalidate>
+          <form name="reserve" action="index.html" method="get" onsubmit="return formValidation();" autocomplete="off" novalidate>
             <div class="formData">
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first"/><br>
@@ -118,7 +117,10 @@
               </label>
               <br>
             </div>
-            <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+            <div class="formData">
+               <input class="btn-submit" type="submit" class="button" value="C'est parti" />
+            </div>
+           
           </form>
         </div>
       </div>

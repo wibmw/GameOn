@@ -210,14 +210,12 @@ input {
 }
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.4em;
+  font-size: 0.7em;
   color: #e54858;
   display: block;
   margin-top: 7px;
   margin-bottom: 7px;
-  text-align: right;
-  line-height: 0.3;
-  opacity: 0;
+  text-align: left;
   transition: 0.3s;
 }
 .formData[data-error-visible="true"]::after {
