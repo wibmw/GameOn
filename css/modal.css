@@ -155,8 +155,9 @@ main {
 }
 
 #modalSuccess input {
-  margin-top: 300px;
+  margin-top: 200%;
   text-align: center;
+  overflow: scroll;
   padding: 12px 0 12px;
 }
 
@@ -467,7 +468,11 @@ footer {
   margin: 0 20px;
 }
 
-
+@media (min-width: 768px)  and (max-width: 1023px) {
+  .hero-headline {
+    font-size: 4.5rem;
+  }
+}
 @media screen and (max-width: 768px) {
   .hero-section {
     display: block;
@@ -499,6 +504,7 @@ footer {
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
+    width: 100%;
   }
   .hero-section > .btn-signup {
     display: block;
@@ -572,11 +578,7 @@ footer {
     background-color: #ffffff00;
   }
   .content {
-    max-height: 450px;
     overflow: scroll;
-  }
-  #modalSuccess {
-    min-height: 380px;
   }
 }  
 
