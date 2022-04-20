@@ -513,13 +513,16 @@ footer {
 
   .topnav a {display: none;}
   .topnav a.icon {
+    background-color: white;
     float: right;
     display: block;
-    color: white;
+    color: #ff0000;
   }
 
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
+    background-color: #ff0000;
+    color: white;
     position: absolute;
     right: 0;
     top: 0;
