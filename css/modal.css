@@ -515,7 +515,7 @@ footer {
   .topnav a.icon {
     float: right;
     display: block;
-    color: red;
+    color: white;
   }
 
   .topnav.responsive {position: relative;}
