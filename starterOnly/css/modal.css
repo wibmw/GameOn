@@ -68,39 +68,6 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} 
-
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -170,26 +137,25 @@ main {
 }
 
 #reserve {
-  visibility: visible;
+  display: block;
 }
 
 #modalSuccess {
-  visibility: collapse;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-around;
+  min-height: 600px;
 }
 
 #modalSuccess span {
   position: absolute;
-  margin-top: -800px;
   text-align: center;
   font-size: 30px;
   font-weight: 500;
 }
 
 #modalSuccess input {
-  margin-top: -100px;
+  margin-top: 300px;
   text-align: center;
   padding: 12px 0 12px;
 }
@@ -235,7 +201,7 @@ input {
 }
 .formData[data-error]::after {
   content: attr(data-error);
-  font-size: 0.7em;
+  font-size: 0.6em;
   color: #e54858;
   display: block;
   margin-top: 7px;
@@ -500,10 +466,16 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
-@media screen and (max-width: 800px) {
+
+
+@media screen and (max-width: 768px) {
   .hero-section {
     display: block;
     box-shadow: unset;
+  }
+  .header-logo img {
+    width: 80%;
+    padding: 5px 0px 0px 12px;
   }
   .hero-content {
     background: #fff;
@@ -517,7 +489,7 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     white-space: normal;
   }
   .hero-text {
@@ -536,8 +508,75 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+    font-size: 15px;
+  }
+
+  .topnav a {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+    color: red;
+  }
+
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .topnav {
+    margin: 4vw;
+  }
+  .header-logo {
+    width:80%;
+  }
+  .header-logo img {
+    width: 50%;
+    padding: 17px 0px 0px 12px;
+  }
+  .hero-headline {
+    font-size: 1.9rem;
+    font-weight: 600;
+  }
+  .hero-text {
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-top: 30px;
+  }
+  .hero-img img {
+    margin-top: 20px;
+    width: 100%;
+  }
+  main {
+    padding-left: 4vw;
+    padding-right: 4vw;
+    margin: 0px;
+  }
+  .hero-content {
+    min-width: 0px;
+    width:100%;
+  }
+  .bground {
+    top: 60px;
+    background-color: #ffffff00;
+  }
+  .content {
+    max-height: 450px;
+    overflow: scroll;
+  }
+  #modalSuccess {
+    min-height: 380px;
+  }
+}  
+
 
 @keyframes modalopen {
   from {

@@ -166,8 +166,8 @@ function formValidation(e) {
         if(checkbox1.checked){
           clearValidationMessage(conditionAcceptation);
           //Modal Success
-          formContent.style.visibility="collapse";
-          modalSuccess.style.visibility="visible";
+          formContent.style.display="none";
+          modalSuccess.style.display="flex";
           return false;
         }else{
           setValidationMessage(conditionAcceptation, acceptationMessage);
