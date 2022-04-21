@@ -8,7 +8,7 @@ function editNav() {
 }
 
 // DOM Elements
-const formContent = document.getElementById("reserve");     //form content
+let formContent = document.getElementById("reserve");     //form content
 const modalSuccess = document.getElementById("modalSuccess");//modal success
 const modalbg = document.querySelector(".bground");         //modal
 const modalSubmit = document.querySelector(".btn-submit");  //modal submit button
@@ -23,8 +23,8 @@ const city = document.getElementById("location1");          //city input
 const conditionAcceptation = document.getElementById("checkbox1");     //conditions input
 
 // default messages
-const firstNameMessage = "Le prénom doit comporter au moins 2 caractères !";
-const lastNameMessage = "Le nom doit comporter au moins 2 caractères !";
+const firstNameMessage = "Le prénom doit comporter au moins 2 caractères alphabétiques";
+const lastNameMessage = "Le nom doit comporter au moins 2 caractères alphabétiques";
 const emailMessage = "L'adresse e-mail n'est pas valide !";
 const birthdateMessage = "La date de naissance n'est pas valide !";
 const quantityMessage = "Merci d'entrer un nombre entre 1 et 99 !";
@@ -146,7 +146,7 @@ quantity.addEventListener('keyup', function (event) {
 });
 
 //********************* FORM VALIDATION  ***********************************/
-function formValidation(e) {
+function formValidation() {
   const radios = document.querySelectorAll("input[name='location']:checked");  //radios checkbox
   // fields check
   namesCheck(firstName, firstNameMessage);
@@ -165,6 +165,12 @@ function formValidation(e) {
         //Termes Acceptation
         if(checkbox1.checked){
           clearValidationMessage(conditionAcceptation);
+          // display json in logs
+          const data = new FormData(formContent);
+          const value = Object.fromEntries(data.entries());
+          value.location = data.getAll("location");
+          console.log({ value });
+          
           //Modal Success
           formContent.style.display="none";
           modalSuccess.style.display="flex";
@@ -179,3 +185,22 @@ function formValidation(e) {
     return false;
   }
 };
+
+//clear field
+function clearField (element) {
+  element.valid = false;
+  element.value = '';
+}
+
+// clear form 
+function clearForm () {
+  clearField(firstName);
+  clearField(lastName);
+  clearField(email);
+  clearField(birthdate);
+  clearField(quantity);
+  document.querySelectorAll("input[name='location']:checked")[0].checked = false;
+  formContent.style.display="block";
+  modalSuccess.style.display="none";
+  closeModal();
+}
