@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <!-- Nav Menu -->
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
       <img alt="logo" src="./images/Logo.png" />
@@ -26,8 +27,9 @@
       </a>
     </div>
   </div>
-  </div>
+
   <main>
+    <!-- Main content -->
     <div class="hero-section">
       <div class="hero-content">
         <h1 class="hero-headline">
@@ -50,31 +52,39 @@
       </button>
     </div>
 
+    <!-- Modal Form -->
     <div class="bground">
       <div class="content">
         <span class="close" onclick="closeModal()"></span>
         <div class="modal-body">
-          <form id="reserve" action="index.html" method="get" onsubmit="return formValidation();" novalidate>
+          <!-- Form novalidate for full JS control -->
+          <form id="reserve" action="index.html" method="get" onsubmit="return formValidation();" novalidate> 
+            <!-- First Name -->
             <div class="formData">
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first"/><br>
             </div>
+            <!-- Last Name -->
             <div class="formData">
               <label for="last">Nom</label><br>
               <input class="text-control" type="text" id="last" name="last"/><br>
             </div>
+            <!-- Email -->
             <div class="formData">
               <label for="email">E-mail</label><br>
               <input class="text-control" type="email" id="email" name="email"/><br>
             </div>
+            <!-- Birthdate -->
             <div class="formData">
               <label for="birthdate">Date de naissance</label><br>
               <input class="text-control" type="date" id="birthdate" name="birthdate" min="1900-01-01"  max="2012-01-01"/><br>
             </div>
+            <!-- Quantity -->
             <div class="formData">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input class="text-control" type="number" id="quantity" name="quantity" min="0" max="99">
             </div>
+            <!-- City Selection -->
             <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
             <div class="formData">
               <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
@@ -102,7 +112,7 @@
                 <span class="checkbox-icon"></span>
                 Portland</label>
             </div>
-
+            <!-- Terms acceptation -->
             <div class="formData">
               <input class="checkbox-input" type="checkbox" id="checkbox1" checked required/>
               <label class="checkbox2-label" for="checkbox1">
@@ -122,6 +132,7 @@
             </div>
             <br/>
           </form>
+          <!-- Modal Success Message -->
           <div id="modalSuccess">
             <span>Merci pour <br/>votre inscription</span>
             <input class="btn-submit" onclick="clearForm ()" class="button" value="Fermer" />
@@ -130,6 +141,7 @@
       </div>
     </div>
   </main>
+  <!-- Footer -->
   <footer>
     <p class="copyrights">
       Copyright 2014 - 2022, GameOn Inc.
