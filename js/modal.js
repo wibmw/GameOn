@@ -99,7 +99,7 @@ function birthdateCheck(birthdate, message){
   minDate = new Date(Date.parse("1900/01/01"));
   selectedDate = new Date(Date.parse(birthdate.value));
  
-  if ((selectedDate < today ) && (selectedDate > minDate)  && (selectedDate > minDate)) {
+  if ((selectedDate < today ) && (selectedDate > minDate)) {
     clearValidationMessage(birthdate);
     birthdate.valid = true;
   } else {

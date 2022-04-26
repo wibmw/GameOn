@@ -212,7 +212,7 @@ main {
 }
 
 #modalSuccess input {
-  margin-top: 200%;
+  margin-top: 150%;
   text-align: center;
   overflow: scroll;
   padding: 12px 0 12px;
@@ -475,6 +475,13 @@ footer {
     font-size: 15px;
   }
 
+  #modalSuccess {
+    min-height: 0px;
+  }
+  
+  #modalSuccess input {
+    margin-top: 100%;
+  }
 }
 /*************************  MEDIA mobile < 600  *******************************/
 @media screen and (max-width: 600px) {
