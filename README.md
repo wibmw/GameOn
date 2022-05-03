@@ -17,10 +17,11 @@ https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR/issues
 ### Pages à intégrer selon les maquettes
 
 - **Page d’accueil**
-![alt text](.\images\accueil.jpeg)
+![alt text](images/accueil.jpeg)
 - **Modal**
-![alt text](.\images\modal1.jpeg)
-![alt text](.\images\modal2.jpeg)
+
+![alt text](images/modal1.jpeg)
+![alt text](images/modal2.jpeg)
 ## Technologies
 
 **Autorisés:** HTML / CSS / JS
